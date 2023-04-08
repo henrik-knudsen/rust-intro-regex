@@ -1,0 +1,14 @@
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - ERROR: Lorem ipsum.
+[2002-10-30 14:33:26] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - DEBUG: Lorem ipsum.
+[2002-10-30 14:33:21] - WARNING: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - INFO: Lorem ipsum.
+[2002-10-30 14:33:22] - ERROR: Lorem ipsum.
+[2002-10-30 14:33:25] - INFO: Lorem ipsum.
