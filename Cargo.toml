@@ -1,3 +1,3 @@
 [workspace]
 
-members = ["part1_fundamentals", "part2_grep"]
+members = ["part1_fundamentals", "part2_grep", "part3_regexlib"]
