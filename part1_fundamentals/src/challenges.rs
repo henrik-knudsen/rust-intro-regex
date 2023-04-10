@@ -20,7 +20,7 @@ mod tests {
         // scientific notation, commas or dots, with or without sign.)
         // Write a regex which the different decimal formats.
         // 720p is not a valid decimal format and should not be matched.
-        const PATTERN: &str = r"^-?(\d+,?)+(\.)?\d+(e\d+)?$";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -55,7 +55,7 @@ mod tests {
         // 1-212-456-7890 -- International phone number, called from America
 
         // TODO: Write a regex which matches all the variants of phone numbers shown above
-        const PATTERN: &str = r"(\d )?(\d{3}[- ]?|\((\d{3})\))?\d{3}[- ]?\d{4}";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -94,7 +94,7 @@ mod tests {
 
         /// TODO: Write a regex which matches all the variants of email shown above
         /// AND captures the email name (e.g. tom, tom.riddle etc.)
-        const PATTERN: &str = r"((\w+\.)?(\w+))(\+\w+)?@(\w+)(\.(\w+))+";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
         /// Group index (starting from 1) of the group capturing the email 'name'
         /// By default set to 1 here, update it if this does not match your pattern.
         const EMAIL_NAME_CAPTURE_GROUP_INDEX: usize = 1;
@@ -139,7 +139,7 @@ mod tests {
 
         /// TODO: Write a regex which matches and captures the sentence
         /// without including the leading or trailing whitespace.
-        const PATTERN: &str = r"^\s*(.*\S)\s*$";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
         /// Group index (starting from 1) of the group capturing the sentence
         /// By default set to 1 here, update it if this does not match your pattern.
         const SENTENCE_CAPTURE_GROUP_INDEX: usize = 1;
@@ -186,7 +186,7 @@ mod tests {
         /// TODO: Write a regex which matches and captures the the method name,
         /// the filename (with the extension) and the linenumber.
         /// NB: The relevant lines follow the pattern: 'at package.Class.MethodName(File.java:LineNumber)'
-        const PATTERN: &str = r"(?:\w+)\.(?:\w+)\.(\w+)\((\w+\.java):(\d{0,})\)";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         const METHOD_NAME_CAPTURE_GROUP_INDEX: usize = 1;
         const FILE_NAME_CAPTURE_GROUP_INDEX: usize = 2;
@@ -242,8 +242,7 @@ mod tests {
 
         /// TODO: Write a regex which matches and captures the scheme, host, port number (optional)
         /// and resource path (also optional).
-        const PATTERN: &str =
-            r"(\w+)://([\w-]+(?:\.\w{2,4})?)(?::(\d{0,5}))?((?:/[\w%#]*)+(?:\.\w+)?)?";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         const SCHEME_CAPTURE_GROUP_INDEX: usize = 1;
         const HOST_CAPTURE_GROUP_INDEX: usize = 2;

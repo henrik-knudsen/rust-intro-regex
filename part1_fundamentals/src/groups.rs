@@ -15,7 +15,7 @@ testfile_fake.pdf.tmp
 
         // Write a regex which captures the filename (without the extension) of pdf files.
         // The regex should not match testfile_fake.pdf.tmp.
-        const PATTERN: &str = r"^(\w+).pdf$";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -35,7 +35,7 @@ testfile_fake.pdf.tmp
 
         // Haystack contains common display resolutions.
         // Write a regex which captures both the width and height of resolution.
-        const PATTERN: &str = r"(\d{0,4})x(\d{0,4})";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -62,7 +62,7 @@ Aug 2011
 
         // Write a regex which captures both the full date (e.g. Jan 1987),
         // and also (only) the year (e.g. 1987).
-        const PATTERN: &str = r"(\w+ (\d{4}))";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();

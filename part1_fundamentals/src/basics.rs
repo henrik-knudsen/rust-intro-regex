@@ -14,7 +14,7 @@ mod tests {
         ";
 
         // Write a regex which matches each 'hello' in the haystack
-        const PATTERN: &str = r"hello";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -31,7 +31,7 @@ mod tests {
         ";
 
         // Write a regex which matches 'hello' and 'hallo', but not hi
-        const PATTERN: &str = r"h.llo";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -53,7 +53,7 @@ mod tests {
         ";
 
         // Write a regex which matches 'man', 'fan', and 'can, but none of the others words
-        const PATTERN: &str = r"[mfc]an";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -74,7 +74,7 @@ mod tests {
         ";
 
         // Write a regex which matches all the words not starting with 'b' (e.g. 'dog', 'hog', 'bog')
-        const PATTERN: &str = r"[^b]og";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -95,7 +95,7 @@ mod tests {
         ";
 
         // Write a regex which matches all the words with capital letters (e.g. 'Ann', 'Bob')
-        const PATTERN: &str = r"[A-C]..";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -116,7 +116,7 @@ mod tests {
         ";
 
         // Write a regex which matches all variants of 'baz' ('baz', 'baaz', ...), but not 'bar'
-        const PATTERN: &str = r"ba*z";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -140,7 +140,7 @@ mod tests {
 
         // Write a regex which matches all variants of 'baz' with
         // at least 2 a's ('baaz', 'baaaz', ...)
-        const PATTERN: &str = r"ba{2,}z";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -161,7 +161,7 @@ mod tests {
         ";
 
         // Write a regex which matches all variants of wazup, with 3 to 5 z's.
-        const PATTERN: &str = r"waz{3,5}up";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -176,7 +176,7 @@ mod tests {
         const HAYSTACK: &str = "800-222-5555";
 
         // Write a regex which matches the phone number (hint: \d matches a digit)
-        const PATTERN: &str = r"\d{3}-\d{3}-\d{4}";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -195,7 +195,7 @@ mod tests {
         ";
 
         // Write a regex which matches all lines with at least one file found.
-        const PATTERN: &str = r"\d* files? was found\?";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -216,7 +216,7 @@ mod tests {
         ";
 
         // Write a regex which the lines with cats and dogs, but not with logs or cogs.
-        const PATTERN: &str = r"I love (cats|dogs)";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = Regex::new(PATTERN).unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
@@ -235,7 +235,7 @@ Next Mission: successful upon capture of target
         ";
 
         // Write a regex which matches only first line
-        const PATTERN: &str = r"^Mission: successful";
+        const PATTERN: &str = r"<INSERT_REGEX_HERE>";
 
         let re = RegexBuilder::new(PATTERN).multi_line(true).build().unwrap();
         let captures: Vec<Captures> = re.captures_iter(HAYSTACK).collect();
