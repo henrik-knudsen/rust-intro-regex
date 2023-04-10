@@ -1,5 +1,10 @@
+// TODO: Add support for more regex syntax
+// ex. quantifiers ? + *, Dot character, Character classes [a-z] ...
+
+/// (Incomplete) parser implementation for regular expressions.
+/// Currently only support Concat and Literal expressions.
 pub fn parse(pattern: &str) -> Ast {
-    let mut concat = Concat { asts: vec![] };
+    let mut concat = Concat { asts: Vec::new() };
 
     for c in pattern.chars() {
         let literal = Literal { c };
@@ -34,6 +39,8 @@ mod tests {
         const PATTERN: &str = "abcde";
 
         let ast = parse(PATTERN);
+
+        dbg!(&ast);
 
         assert_eq!(
             ast,

@@ -1,12 +1,14 @@
 use crate::parse::{Ast, Concat, Literal};
 
+// TODO: Add support for compiling new regex syntax
+// ex. quantifiers ? + *, Dot character, Character classes [a-z] ...
+
 pub fn compile(parsed: &Ast) -> Program {
     let mut program = Program {
-        instructions: vec![],
+        instructions: Vec::new(),
     };
-    let mut compiled = compile_ast(parsed);
 
-    program.instructions.append(&mut compiled);
+    program.instructions.append(&mut compile_ast(parsed));
 
     program.instructions.push(Instruction::Match);
 
@@ -14,7 +16,7 @@ pub fn compile(parsed: &Ast) -> Program {
 }
 
 fn compile_ast(ast: &Ast) -> Vec<Instruction> {
-    let mut instructions = vec![];
+    let mut instructions = Vec::new();
 
     match ast {
         Ast::Literal(literal) => {
@@ -31,7 +33,7 @@ fn compile_ast(ast: &Ast) -> Vec<Instruction> {
 }
 
 fn compile_concat(concat: &Concat) -> Vec<Instruction> {
-    let mut instructions = vec![];
+    let mut instructions = Vec::new();
 
     for ast in &concat.asts {
         instructions.append(&mut compile_ast(&ast));

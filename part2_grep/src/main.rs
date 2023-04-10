@@ -6,6 +6,7 @@ use owo_colors::OwoColorize;
 use regex::{self, Match, Regex};
 
 fn main() -> Result<()> {
+    // TODO: Add options for replacing text, regex flags (case insensitive ..) and output options
     let args = Args::parse();
 
     let re = Regex::new(&args.pattern)?;
@@ -17,6 +18,7 @@ fn main() -> Result<()> {
     Ok(())
 }
 
+/// Searches with the regex pattern in a given path (either directory or file).
 fn search_path(re: &Regex, path: String) -> Result<()> {
     let path = Path::new(&path);
 
@@ -33,6 +35,9 @@ fn search_path(re: &Regex, path: String) -> Result<()> {
     Ok(())
 }
 
+/// Searches with the regex pattern in a directory path.
+/// Delegate to search_file for file paths.
+/// In the case of sub-directories, we recurse.
 fn search_dir(re: &Regex, dir: &Path) -> Result<()> {
     for entry in std::fs::read_dir(&dir)? {
         let entry = entry?;
@@ -48,10 +53,19 @@ fn search_dir(re: &Regex, dir: &Path) -> Result<()> {
     Ok(())
 }
 
+/// Searches with the regex pattern in a file path
+/// File path and matching lines are printed to standard out
 fn search_file(re: &Regex, path: &Path) -> Result<()> {
     let mut has_printed_file_path = false;
 
     let content = read_to_string(&path)?;
+
+    // TODO: println! does not buffer writes, and can become bottleneck if called frequently in a loop.
+    // Use BufWriter<T> (https://doc.rust-lang.org/std/io/struct.BufWriter.html)
+    // with std::io::stdout (https://doc.rust-lang.org/std/io/fn.stdout.html)
+
+    // TODO: Current approach allocates a lot of extra memory (Vec for all matches + new string for formatted output)
+    // Avoid the allocations.
 
     for (i, line) in content.lines().enumerate() {
         let mut matches = Vec::new();
@@ -81,6 +95,8 @@ fn search_file(re: &Regex, path: &Path) -> Result<()> {
     Ok(())
 }
 
+/// Helper function for generating a String for line with linenumber in green and
+/// all matches highlighted in bright red.
 fn format_matches(matches: &Vec<Match>, index: usize, line: &str) -> String {
     let mut result = String::new();
     let mut last_index = 0;
@@ -92,7 +108,7 @@ fn format_matches(matches: &Vec<Match>, index: usize, line: &str) -> String {
         // non matching part of line
         result.push_str(&line[last_index..matched.start()]);
 
-        // matching part of line
+        // matching part of line, in bright red
         result.push_str(
             &(&line[matched.start()..matched.end()])
                 .bright_red()
@@ -108,6 +124,7 @@ fn format_matches(matches: &Vec<Match>, index: usize, line: &str) -> String {
     result
 }
 
+/// CLI arguments
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about=None)]
 struct Args {
@@ -116,4 +133,6 @@ struct Args {
 
     /// A file or directory to search.
     path: Vec<String>,
+    //
+    // Add more options ..
 }

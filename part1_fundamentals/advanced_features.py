@@ -4,7 +4,6 @@ import re
 Examples of some more advanced regex features, not available in Rust regex crate.
 """
 
-
 def print_regex_result(regex: str, haystacks: list[str]):
     for haystack in haystacks:
         matched = regex.match(haystack)

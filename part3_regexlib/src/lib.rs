@@ -7,9 +7,9 @@ mod execute;
 mod parse;
 
 pub struct Match<'t> {
-    text: &'t str,
-    start: usize,
-    end: usize,
+    pub text: &'t str,
+    pub start: usize,
+    pub end: usize,
 }
 
 #[derive(Debug)]
@@ -34,6 +34,16 @@ impl Regex {
     pub fn is_match_at(&self, text: &str, start: usize) -> bool {
         execute(&self.program, text, start)
     }
+
+    pub fn find(&self, text: &str) -> Option<Match> {
+        self.find_at(text, 0)
+    }
+
+    // TODO: Implement extracting matches
+    // NB: Have to extend execute function
+    pub fn find_at(&self, _text: &str, _start: usize) -> Option<Match> {
+        todo!()
+    }
 }
 
 #[cfg(test)]
@@ -50,6 +60,11 @@ mod tests {
         assert!(re.is_match(&"aabcde"));
         assert!(re.is_match(&"abcdeeeeee"));
         assert!(re.is_match(&"aaaaabcdeeeeee"));
+
+        assert!(!re.is_match(&"acbde"));
+        assert!(!re.is_match(&"aacbde"));
+        assert!(!re.is_match(&"abcedeeeee"));
+        assert!(!re.is_match(&"aaaaacbdeeeeee"));
     }
 
     #[test]
